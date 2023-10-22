@@ -1,0 +1,34 @@
+-module(day3).
+
+-author("jjm").
+
+-export([maximum_score/2]).
+
+-spec maximum_score(Nums :: [integer()], K :: integer()) -> integer().
+maximum_score(Nums, K) ->
+  Len = length(Nums),
+  % io:format("Len ~p  ~n", [Len]),
+  I = lists:seq(0, K),
+  J = lists:seq(K, Len - 1),
+  % io:format("I Len ~p  ~n", [length(I)]),
+  % io:format("J Len ~p  ~n", [length(J)]),
+  Ti = [[Xi, Yi] || Xi <- I, Yi <- J],
+
+  io:format("Ti Len ~p  ~n", [length(Ti)]),
+  io:format("Ti ~p  ~n", [Ti]),
+
+  T = [lists:min(
+         lists:sublist(Nums, first(X1)+1, second(X1) - first(X1) + 1))
+       * (second(X1) - first(X1) + 1)
+       || X1 <- Ti],
+  io:format("T Len ~p  ~n", [T]),
+
+  lists:max(T).
+
+first(T) ->
+  [T1, _] = T,
+  T1.
+
+second(T) ->
+  [_, T2] = T,
+  T2.
