@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<h2>Calendar</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+  </thead>
+  <tbody id="calendar-body">
+  </tbody>
+</table>
+
+<script>
+  function createCalendar(year, month) {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthDays = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+    
+    const calendarBody = document.getElementById('calendar-body');
+    calendarBody.innerHTML = '';
+    
+    let dayCounter = 1;
+    
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement('tr');
+      for (let j = 0; j < 7; j++) {
+        if (i === 0 && j < firstDay) {
+          const cell = document.createElement('td');
+          row.appendChild(cell);
+        } else if (dayCounter > monthDays) {
+          break;
+        } else {
+          const cell = document.createElement('td');
+          cell.textContent = dayCounter;
+          row.appendChild(cell);
+          dayCounter++;
+        }
+      }
+      calendarBody.appendChild(row);
+    }
+  }
+
+  const currentDate = new Date();
+  createCalendar(currentDate.getFullYear(), currentDate.getMonth());
+</script>
+
+</body>
+</html>
