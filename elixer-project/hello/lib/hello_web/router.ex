@@ -18,18 +18,16 @@ defmodule HelloWeb.Router do
     pipe_through :browser
 
     IO.puts "jjm Hello World2"
-    IO.puts ":browser"
-    IO.puts :browser
-    IO.puts ":pipe_through"
-    IO.puts :pipe_through
     get "/", PageController, :home
+    get "/hello", HelloController, :index
+    get "/hello/:messenger", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", HelloWeb do
-    pipe_through :api
-    get "/", APIController, :home
-  end
+  # scope "/api", HelloWeb do
+  #   pipe_through :api
+  #   get "/", APIController, :show
+  # end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:jjm, :dev_routes) do
