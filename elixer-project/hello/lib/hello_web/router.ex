@@ -17,16 +17,22 @@ defmodule HelloWeb.Router do
   scope "/", HelloWeb do
     pipe_through :browser
 
+    IO.puts "jjm Hello World2"
+    IO.puts ":browser"
+    IO.puts :browser
+    IO.puts ":pipe_through"
+    IO.puts :pipe_through
     get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HelloWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", HelloWeb do
+    pipe_through :api
+    get "/", APIController, :home
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
-  if Application.compile_env(:hello, :dev_routes) do
+  if Application.compile_env(:jjm, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
     # it behind authentication and allow only admins to access it.
     # If your application does not have an admins-only section yet,

@@ -3,7 +3,7 @@ defmodule Hello.MixProject do
 
   def project do
     [
-      app: :hello,
+      app: :jjm,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -57,7 +57,8 @@ defmodule Hello.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.2"}
+      {:bandit, "~> 1.2"},
+      {:evision, "~> 0.1"}
     ]
   end
 

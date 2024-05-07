@@ -10,7 +10,7 @@ defmodule Hello.Application do
     children = [
       HelloWeb.Telemetry,
       Hello.Repo,
-      {DNSCluster, query: Application.get_env(:hello, :dns_cluster_query) || :ignore},
+      {DNSCluster, query: Application.get_env(:jjm, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Hello.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: Hello.Finch},

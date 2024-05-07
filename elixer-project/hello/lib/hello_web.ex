@@ -38,9 +38,6 @@ defmodule HelloWeb do
 
   def controller do
     quote do
-
-      IO.puts "jjm controller1"
-      IO.puts "jjm controller2"
       use Phoenix.Controller,
         formats: [:html, :json],
         layouts: [html: HelloWeb.Layouts]
@@ -55,7 +52,6 @@ defmodule HelloWeb do
   def live_view do
     quote do
       IO.puts "jjm live_view"
-      IO.puts "jjm live_view2"
       use Phoenix.LiveView,
         layout: {HelloWeb.Layouts, :app}
 
@@ -66,7 +62,6 @@ defmodule HelloWeb do
   def live_component do
     quote do
       IO.puts "jjm live_component"
-      IO.puts "jjm live_component2"
       use Phoenix.LiveComponent
 
       unquote(html_helpers())
@@ -76,7 +71,6 @@ defmodule HelloWeb do
   def html do
     quote do
       IO.puts "jjm html"
-      IO.puts "jjm html2"
       use Phoenix.Component
 
       # Import convenience functions from controllers
@@ -90,7 +84,6 @@ defmodule HelloWeb do
 
   defp html_helpers do
     quote do
-      IO.puts "jjm html_helpers"
       IO.puts "jjm html_helpers"
       # HTML escaping functionality
       import Phoenix.HTML
@@ -108,7 +101,6 @@ defmodule HelloWeb do
 
   def verified_routes do
     quote do
-      IO.puts "jjm verified_routes"
       IO.puts "jjm verified_routes"
       use Phoenix.VerifiedRoutes,
         endpoint: HelloWeb.Endpoint,

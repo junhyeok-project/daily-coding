@@ -1,5 +1,5 @@
 defmodule HelloWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :hello
+  use Phoenix.Endpoint, otp_app: :jjm
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -21,7 +21,7 @@ defmodule HelloWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :hello,
+    from: :jjm,
     gzip: false,
     only: HelloWeb.static_paths()
 
@@ -31,7 +31,7 @@ defmodule HelloWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :hello
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :jjm
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
